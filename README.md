@@ -4,7 +4,6 @@ An exercise wand calculator for Sorcerers and Druid at the game "Tibia"
 <strong>IT CAN BE USED EITHER FOR SORC AND DRUIDS (it is only exercise wands and rods, cant be used on other vocations yet)</strong>
 
 <b>Instructions:</b>
-s
 	<strong>1- "What is your magicLevel now ? "</strong> 
 	answer: Here you will type your current magic level (even if it is 1)
 
