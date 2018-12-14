@@ -32,6 +32,8 @@ try:
         baseManaMl = ((baseManaMl/100) * 10) + baseManaMl
         counterManaAtualMl = counterManaAtualMl -1
     counterManaTargetMl = int(desiredMl) - 1
+    #   Magic level current percentage added to manaAlreadySpent
+    manaAlreadySpent = manaAlreadySpent + (baseManaMl*(float(atualPercentage)/100))
     baseManaMl = 1600
 
     #   This while calculates the ammount of mana needed for the target magic level
@@ -43,8 +45,6 @@ try:
     #   This calculates the whole mana needed to target magic level and it will be rounded to make things easier to read
     manaNeeded = round(manaNeeded - manaAlreadySpent)
 
-    #   Withdraw the percentage(ammount of mana) of the current magic level that you already have
-    manaNeeded = manaNeeded - (manaNeeded * (float(atualPercentage)/100))
 
     # If doubleExp is active, the ammount of mana needed for the next ML is divided by two
     if doubleExpStatus:
