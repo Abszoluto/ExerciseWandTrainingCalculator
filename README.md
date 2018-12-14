@@ -5,11 +5,17 @@ An exercise wand calculator for Sorcerers and Druid at the game "Tibia"
 
 <b>Instructions:</b>
 
-<strong>1- "What is your magicLevel now ? "</strong> - Here you type your current magic level (even if it is 1)
+<strong>1- "What is your magicLevel now ? "</strong> 
+answer: Here you will type your current magic level (even if it is 1)
 
-<strong>2- "What is the desired Magic level? "</strong> - Here you will type the magic level that you want to reach
+<strong>2- "What is the percentage progress in your current magic level ? "</strong>
+answer: Here you will type your current progress at your magic level to the next one
 
-<strong>3- "Is it double exp ? "</strong> - If it is double skills, you will answer "yes" if not then "no"
+<strong>3- "What is the desired Magic level? "</strong> - Here you will type the magic level that you want to reach
+answer: Here you will type the magic level that you want to reach
+
+<strong>4- "Is it double exp ? "</strong> - If it is double skills, you will answer "yes" if not then "no"
+answer: If it is double skills, you will answer "yes" if not then "no"
 
 
 <b>Results:</b>
