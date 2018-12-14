@@ -1,6 +1,5 @@
 """
     * Version 1.1 - Added the percentage of current magic level to the count of wands
-    * Version 2.0 - Added the support to loyalty points
     * This program was made to calculate how many training Wands and Rods you need to acquire the desired Magic Level
     * Made in Python 3.7.0
     * Author: Abszoluto
