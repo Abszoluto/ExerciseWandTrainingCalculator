@@ -17,6 +17,9 @@ An exercise wand calculator for Sorcerers and Druid at the game "Tibia"
 	4- "Is it double exp ? "
 	answer: If it is double skills, you will answer "yes" if not then "no"
 
+	5- "What is the ammount of loyalty points (0 if none)? "
+	answer: Make sure to put the right ammount of loyalty points in your character (between 0 - 3600)
+	NOTE: You can find the loyalty points ammount into tibia.com website at your account pannel
 
 <b>Results:</b>
 
