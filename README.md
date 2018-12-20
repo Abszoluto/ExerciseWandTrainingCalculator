@@ -5,7 +5,7 @@ An exercise wand calculator for Sorcerers and Druid at the game "Tibia"
 
 <b>Instructions:</b>
 
-        1- "What is your magicLevel now ? "
+    1- "What is your magicLevel now ? "
 	answer: Here you will type your current magic level (even if it is 1)
 
 	2- "What is the percentage progress in your current magic level ? " (up to version 1.1)
