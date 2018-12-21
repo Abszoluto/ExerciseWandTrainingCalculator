@@ -1,6 +1,7 @@
 """
     * Version 1.1 - Added the percentage of current magic level to the count of wands
     * Version 2.0 - Added compatibility for loyalty points
+    * Version 2.1 - Personal dummy now avaliable for the calculus
     * This program was made to calculate how many training Wands and Rods you need to acquire the desired Magic Level
     * Made in Python 3.7.0
     * Author: Abszoluto
@@ -30,6 +31,7 @@ try:
     desiredMl =  input("What is the desired magic level? ")
     doubleExpStatus = verifyStatus(input("Is it double exp ? "))
     loyaltyPointsAmmount = int(input("What is the ammount of loyalty points (0 if none)? "))
+    personalDummy = verifyStatus(input("Do you have a personal dummy ? "))
     counterManaAtualMl = int(atualMl) - 1
 
     #   This while calculates the ammount of mana you've already spent in your magic Level
@@ -59,8 +61,21 @@ try:
     # If doubleExp is active, the ammount of mana needed for the next ML is divided by two
     if doubleExpStatus:
         manaNeeded = manaNeeded / 2
-    print (f"Mana needed for the Magic Level {desiredMl}: {manaNeeded}")
     wandsNeeded = manaNeeded/302000
+
+    """
+        * The condition below are related if the player has a personal dummy,
+        if it has, and it is double exp: 20% improve on the training (0,2 * wandsNeeded)
+        if it has, but the double exp its off: 10% improve on the training (0,1 * wandsNeeded)
+        Since we need to know the number of wands that we need, our training will be more effective
+        with less wands, so (wandsNeeded - (0,2 * wandsNeeded) or (0,1 * wandsNeeded))
+    """
+    if personalDummy:
+        if doubleExpStatus:
+            wandsNeeded = wandsNeeded - (wandsNeeded * 0.2)
+        else:
+            wandsNeeded = wandsNeeded - (wandsNeeded *0.1)
+    print (f"Mana needed for the Magic Level {desiredMl}: {manaNeeded}")
     print(f"Wands needed for get the desired Magic Level: {wandsNeeded}")
 except:
-    print("Im sorry, an error has ocurred...")
+        print("Im sorry, an error has ocurred...")
