@@ -21,6 +21,8 @@ An exercise wand calculator for Sorcerers and Druid at the game "Tibia"
 	answer: Make sure to put the right ammount of loyalty points in your character (between 0 - 3600)
 	NOTE: You can find the loyalty points ammount into tibia.com website at your account pannel
 
+    6- "Do you have a personal dummy ? "
+    answer: If you have a personal dummy (bought at store with tibia coins) at your house "yes" otherwise "no"
 <b>Results:</b>
 
 	Mana needed for the Magic Level: Ammount of mana that you need to spent to get at the desired ML
