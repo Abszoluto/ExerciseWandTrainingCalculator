@@ -6,6 +6,17 @@
     * Made in Python 3.7.0
     * Author: Abszoluto
 """
+def ownRound(number):
+  """
+    This method is resposable to round the number
+    If the number is bigger than its converted integer number 
+    it will round for the next decimal number
+  """
+  if int(number) != number:
+    return (int(number)+1) 
+  else:
+    return number
+
 def verifyStatus (status):
     """
         This method is responsable for validating the user answer depending on the main language
@@ -25,6 +36,7 @@ manaPerWand = 302000 # Ammount of mana that you "will spend" using one wand
 baseManaMl = 1600 # This is the base mana ammount to get to ml 2
 manaNeeded = 0 # This will be the ammount of mana needed for the target magic level
 manaAlreadySpent = 0 # This will be the already spent mana in your current magic level
+wandManaAmount = 302000
 try:
     atualMl = input("What is your magic level now ? ")
     atualPercentage = input("What is the percentage progress in your current magic level ? ")
@@ -36,11 +48,10 @@ try:
 
     #   This while calculates the ammount of mana you've already spent in your magic Level
     while counterManaAtualMl:
-        manaAlreadySpent = manaAlreadySpent + baseManaMl
-        baseManaMl = ((baseManaMl/100) * 10) + baseManaMl
-        counterManaAtualMl = counterManaAtualMl -1
+      manaAlreadySpent = manaAlreadySpent + round(baseManaMl)
+      baseManaMl = (baseManaMl*0.1) + baseManaMl
+      counterManaAtualMl = counterManaAtualMl -1
     counterManaTargetMl = int(desiredMl) - 1
-
     #   Magic level current percentage added to manaAlreadySpent
     manaAlreadySpent = manaAlreadySpent + (baseManaMl*(float(atualPercentage)/100))
 
@@ -50,19 +61,21 @@ try:
 
     #   This while calculates the ammount of mana needed for the target magic level
     while counterManaTargetMl:
-        manaNeeded = manaNeeded + baseManaMl
-        tmp = (baseManaMl/100) * 10
-        baseManaMl = baseManaMl + tmp
-        counterManaTargetMl = counterManaTargetMl - 1
+      manaNeeded = manaNeeded + round(baseManaMl)
+      baseManaMl = baseManaMl*0.1 + baseManaMl
+      counterManaTargetMl = counterManaTargetMl - 1
 
     #   This calculates the whole mana needed to target magic level and it will be rounded to make things easier to read
-    manaNeeded = round(manaNeeded - manaAlreadySpent)
+    manaNeeded = manaNeeded - manaAlreadySpent
 
     # If doubleExp is active, the ammount of mana needed for the next ML is divided by two
     if doubleExpStatus:
-        manaNeeded = manaNeeded / 2
-    wandsNeeded = manaNeeded/302000
+      wandManaAmount = 604000
 
+    if personalDummy:
+      wandsNeeded = ownRound((manaNeeded/(wandManaAmount+30200)))
+    else:
+      wandsNeeded = ownRound((manaNeeded/wandManaAmount))
     """
         * The condition below are related if the player has a personal dummy,
         if it has, and it is double exp: 20% improve on the training (0,2 * wandsNeeded)
@@ -70,11 +83,6 @@ try:
         Since we need to know the number of wands that we need, our training will be more effective
         with less wands, so (wandsNeeded - (0,2 * wandsNeeded) or (0,1 * wandsNeeded))
     """
-    if personalDummy:
-        if doubleExpStatus:
-            wandsNeeded = wandsNeeded - (wandsNeeded * 0.2)
-        else:
-            wandsNeeded = wandsNeeded - (wandsNeeded *0.1)
     print (f"Mana needed for the Magic Level {desiredMl}: {manaNeeded}")
     print(f"Wands needed for get the desired Magic Level: {wandsNeeded}")
 except:
